@@ -5,36 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Plaisir Partagé</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px 20px; }
+        body { font-family: sans-serif; text-align: center; padding-top: 100px; background-color: #f4f4f4; }
+        .card { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         .btn { 
-            display: inline-block; padding: 20px 30px; 
+            display: inline-block; padding: 15px 30px; 
             background: #4F9356; color: white; 
-            text-decoration: none; border-radius: 10px; 
-            font-size: 1.2em; font-weight: bold;
+            text-decoration: none; border-radius: 8px; 
+            font-weight: bold; margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h2>Ouverture de l'atelier...</h2>
-    <p>Cliquez sur le bouton ci-dessous pour voir les détails dans l'application :</p>
-    
-    <a id="open-link" class="btn" href="#">OUVRIR L'APPLICATION</a>
+    <div class="card">
+        <h2>Atelier trouvé !</h2>
+        <p>Cliquez ci-dessous pour l'ouvrir :</p>
+        <a id="open-link" class="btn" href="#">VOIR L'ATELIER</a>
+    </div>
 
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
-        // On utilise ici le schéma que tu as défini dans ton AndroidManifest
-        const appLink = "plaisirpartage://atelier?id=" + id;
-
         if (id) {
-            document.getElementById('open-link').href = appLink;
+            const finalUrl = "plaisirpartage://atelier?id=" + id;
+            document.getElementById('open-link').href = finalUrl;
             
-            // Tentative automatique après 1 seconde
-            setTimeout(() => {
-                window.location.href = appLink;
-            }, 1000);
+            // On tente quand même l'auto-ouverture
+            window.location.href = finalUrl;
         } else {
-            document.body.innerHTML = "<h2>ID d'atelier manquant</h2>";
+            document.body.innerHTML = "<h1>ID manquant dans le lien</h1>";
         }
     </script>
 </body>

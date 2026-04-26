@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Plaisir Partagé - Redirection</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 50px; color: #4F9356; }
+        .btn { display: inline-block; padding: 15px 25px; background: #4F9356; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Ouverture de l'atelier...</h2>
+    <p>Si l'application ne s'ouvre pas automatiquement, cliquez ci-dessous :</p>
+    <a id="open-link" class="btn" href="#">Ouvrir dans l'application</a>
+
+    <script>
+        // On récupère l'ID dans l'URL (ex: ?id=L5p4oh2)
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const appLink = "plaisirpartage://atelier?id=" + id;
+
+        if (id) {
+            // Mise à jour du bouton au cas où
+            document.getElementById('open-link').href = appLink;
+            // Tentative de redirection automatique
+            window.location.href = appLink;
+        } else {
+            document.body.innerHTML = "<h2>Erreur : Aucun atelier spécifié.</h2>";
+        }
+    </script>
+</body>
+</html>

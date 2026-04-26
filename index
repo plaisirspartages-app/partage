@@ -2,30 +2,39 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Plaisir Partagé - Redirection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plaisir Partagé</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding-top: 50px; color: #4F9356; }
-        .btn { display: inline-block; padding: 15px 25px; background: #4F9356; color: white; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        body { font-family: sans-serif; text-align: center; padding: 50px 20px; }
+        .btn { 
+            display: inline-block; padding: 20px 30px; 
+            background: #4F9356; color: white; 
+            text-decoration: none; border-radius: 10px; 
+            font-size: 1.2em; font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <h2>Ouverture de l'atelier...</h2>
-    <p>Si l'application ne s'ouvre pas automatiquement, cliquez ci-dessous :</p>
-    <a id="open-link" class="btn" href="#">Ouvrir dans l'application</a>
+    <p>Cliquez sur le bouton ci-dessous pour voir les détails dans l'application :</p>
+    
+    <a id="open-link" class="btn" href="#">OUVRIR L'APPLICATION</a>
 
     <script>
-        // On récupère l'ID dans l'URL (ex: ?id=L5p4oh2)
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
+        // On utilise ici le schéma que tu as défini dans ton AndroidManifest
         const appLink = "plaisirpartage://atelier?id=" + id;
 
         if (id) {
-            // Mise à jour du bouton au cas où
             document.getElementById('open-link').href = appLink;
-            // Tentative de redirection automatique
-            window.location.href = appLink;
+            
+            // Tentative automatique après 1 seconde
+            setTimeout(() => {
+                window.location.href = appLink;
+            }, 1000);
         } else {
-            document.body.innerHTML = "<h2>Erreur : Aucun atelier spécifié.</h2>";
+            document.body.innerHTML = "<h2>ID d'atelier manquant</h2>";
         }
     </script>
 </body>

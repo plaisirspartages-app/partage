@@ -1,0 +1,118 @@
+import os
+
+# Contenu des CGU extrait du code Java
+cgu_content = """
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGU - Plaisir Partagé</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #e67e22;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+        h3 {
+            color: #d35400;
+            font-size: 1.1em;
+        }
+        p, li {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .meta {
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-weight: bold;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conditions Générales d'Utilisation</h1>
+        
+        <div class="meta">
+            APPLICATION : <strong>PLAISIR PARTAGÉ</strong><br>
+            Dernière mise à jour : 24 avril 2026
+        </div>
+
+        <h2>1. OBJET</h2>
+        <p>Les présentes CGU ont pour objet de définir les modalités de mise à disposition des services de l'application "Plaisir Partagé". L'application est une plateforme communautaire de mise en relation entre particuliers.</p>
+
+        <h2>2. ACCEPTATION DES CONDITIONS</h2>
+        <p>L'utilisation de l'application est subordonnée à l'acceptation intégrale des présentes CGU. En cochant la case lors de l'inscription, l'utilisateur reconnaît en avoir pris connaissance et les accepte sans réserve.</p>
+
+        <h2>3. DESCRIPTION DES SERVICES ET GRATUITÉ</h2>
+        <h3>3.1 Rôle de l'application</h3>
+        <p>Plaisir Partagé agit comme simple intermédiaire technique. L'application facilite la rencontre, mais n'organise pas elle-même les ateliers.</p>
+        <h3>3.2 Coûts liés aux activités</h3>
+        <p>L'utilisation de l'application est gratuite. Cependant, certains frais extérieurs (ex: restaurant, billet d'entrée) restent exclusivement à la charge de l'utilisateur.</p>
+
+        <h2>4. RÈGLES DE BONNE CONDUITE ET MODÉRATION</h2>
+        <p><strong>4.1 Respect mutuel :</strong> Tout propos haineux, discriminatoire, harcèlement ou comportement inapproprié dans les chats ou lors des activités est strictement interdit.</p>
+        <p><strong>4.2 Système de signalement :</strong> Chaque utilisateur dispose d'outils pour signaler tout contenu ou comportement abusif (bouton de signalement sur les messages ou ateliers).</p>
+        <p><strong>4.3 Sanctions et Bannissement :</strong> En cas de manquement grave ou de signalements répétés, l'équipe de modération se réserve le droit de supprimer les contenus litigieux et de bannir définitivement le compte de l'utilisateur fautif, sans préavis ni indemnité.</p>
+
+        <h2>5. RESPONSABILITÉS</h2>
+        <p><strong>5.1 Organisateur :</strong> L'utilisateur qui propose un atelier s'engage sur l'exactitude des informations et la sécurité du lieu choisi.</p>
+        <p><strong>5.2 Participant :</strong> L'utilisateur participe aux activités sous sa propre responsabilité. Plaisir Partagé décline toute responsabilité en cas de litige, vol, accident ou dommage corporel survenant lors d'une rencontre réelle.</p>
+        <p><strong>5.3 Vigilance :</strong> Il est vivement conseillé de privilégier les lieux publics pour les rencontres et de prévenir un proche lors d'une première activité.</p>
+
+        <h2>6. DONNÉES PERSONNELLES (RGPD)</h2>
+        <p><strong>6.1 Données collectées :</strong> E-mail, nom, date de naissance, localisation (facultative) et données de modération (signalements).</p>
+        <p><strong>6.2 Finalité :</strong> Gestion du compte, sécurité des utilisateurs et statistiques anonymes.</p>
+        <p><strong>6.3 Vos droits :</strong> L'utilisateur dispose d'un droit d'accès, de rectification et de suppression de ses données via les paramètres de l'application. La suppression du compte entraîne la suppression définitive de toutes les données personnelles associées.</p>
+
+        <h2>7. PUBLICITÉ ET MAINTENANCE</h2>
+        <p>L'utilisateur est informé que l'application peut afficher des bandeaux publicitaires discrets pour assurer la gratuité et la maintenance technique du service.</p>
+
+        <h2>8. GÉOLOCALISATION</h2>
+        <p>L'accès à la localisation a pour but exclusif de faciliter la recherche d'activités à proximité de l'utilisateur. Elle ne fait l'objet d'aucun traçage commercial.</p>
+
+        <h2>9. DROIT APPLICABLE</h2>
+        <p>Les présentes CGU sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+
+        <div class="footer">
+            Merci de contribuer à faire de Plaisir Partagé un espace convivial et sécurisé !
+        </div>
+    </div>
+</body>
+</html>
+"""
+
+# Sauvegarde du fichier
+with open("cgu_plaisir_partage.html", "w", encoding="utf-8") as f:
+    f.write(cgu_content)
